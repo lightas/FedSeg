@@ -1,0 +1,209 @@
+os.getcwd():  /home/mjx/MIAO_code_noshare_g_ditill/bisenetv2_fedavg_miao
+
+Experimental details:
+    Dataset                 : ade20k
+    Dataset root_dir        : ../ade20k_split_class_2
+    USE_ERASE_DATA          : True
+    Number of classes       : 150
+    Split data (train data) : train
+    Model                   : bisenetv2
+    resume from Checkpoint  : 
+    Optimizer               : sgd
+    Scheduler               : step
+    Learning rate           : 0.05
+    Momentum                : 0.99
+    weight decay            : 0.0005
+    Global Rounds           : 800
+
+    Federated parameters:
+    Non-IID
+    Number of global users  : 450
+    Fraction num of users   : 5
+    Local Epochs            : 2
+    Local Batch size        : 8
+
+    Logging parameters:
+    save_frequency          : 20
+    local_test_frequency    : 9999
+    global_test_frequency   : 20
+    USE_WANDB               : False
+
+device: cuda
+['airplane', 'animal', 'apparel', 'arcade machine', 'armchair', 'ashcan', 'awning', 'bag', 'ball', 'bannister', 'bar', 'barrel', 'base', 'basket', 'bathtub', 'bed', 'bench', 'bicycle', 'blanket', 'blind', 'boat', 'book', 'bookcase', 'booth', 'bottle', 'box', 'bridge', 'buffet', 'building', 'bulletin board', 'bus', 'cabinet', 'canopy', 'car', 'case', 'ceiling', 'chair', 'chandelier', 'chest of drawers', 'clock', 'coffee table', 'column', 'computer', 'conveyer belt', 'counter', 'countertop', 'cradle', 'crt screen', 'curtain', 'cushion', 'desk', 'dirt track', 'dishwasher', 'door', 'earth', 'escalator', 'fan', 'fence', 'field', 'fireplace', 'flag', 'floor', 'flower', 'food', 'fountain', 'glass', 'grandstand', 'grass', 'hill', 'hood', 'house', 'hovel', 'kitchen island', 'lake', 'lamp', 'land', 'light', 'microwave', 'minibike', 'mirror', 'monitor', 'mountain', 'ottoman', 'oven', 'painting', 'palm', 'path', 'person', 'pier', 'pillow', 'plant', 'plate', 'plaything', 'pole', 'pool table', 'poster', 'pot', 'radiator', 'railing', 'refrigerator', 'river', 'road', 'rock', 'rug', 'runway', 'sand', 'sconce', 'screen door', 'screen', 'sculpture', 'sea', 'seat', 'shelf', 'ship', 'shower', 'sidewalk', 'signboard', 'sink', 'sky', 'skyscraper', 'sofa', 'stage', 'stairs', 'stairway', 'step', 'stool', 'stove', 'streetlight', 'swimming pool', 'swivel chair', 'table', 'tank', 'television receiver', 'tent', 'toilet', 'towel', 'tower', 'trade name', 'traffic light', 'tray', 'tree', 'truck', 'van', 'vase', 'wall', 'wardrobe', 'washer', 'water', 'waterfall', 'windowpane']
+[0, 57, 151, 301, 369, 470, 633, 786, 934, 1058, 1222, 1355, 1405, 1547, 1700, 1797, 1946, 2109, 2272, 2422, 2573, 2735, 2878, 3029, 3099, 3252, 3412, 3572, 3683, 3854, 3991, 4153, 4275, 4340, 4510, 4652, 4820, 4947, 5075, 5228, 5357, 5510, 5673, 5824, 5881, 6032, 6183, 6255, 6405, 6502, 6635, 6788, 6867, 6970, 7132, 7303, 7344, 7497, 7667, 7837, 7990, 8143, 8274, 8414, 8524, 8616, 8769, 8884, 9055, 9222, 9357, 9527, 9591, 9720, 9772, 9910, 10059, 10222, 10323, 10485, 10593, 10743, 10914, 11065, 11203, 11365, 11529, 11699, 11869, 11953, 12086, 12256, 12395, 12546, 12716, 12860, 13001, 13164, 13313, 13445, 13524, 13692, 13862, 14032, 14168, 14246, 14414, 14543, 14653, 14749, 14902, 15070, 15209, 15348, 15400, 15524, 15694, 15864, 15948, 16099, 16262, 16391, 16498, 16668, 16786, 16937, 17088, 17175, 17345, 17409, 17560, 17722, 17778, 17931, 17989, 18140, 18221, 18348, 18497, 18651, 18802, 18973, 19140, 19278, 19389, 19559, 19712, 19788, 19958, 20036]
+['airplane', 'animal', 'apparel', 'arcade machine', 'armchair', 'ashcan', 'awning', 'bag', 'ball', 'bannister', 'bar', 'barrel', 'base', 'basket', 'bathtub', 'bed', 'bench', 'bicycle', 'blanket', 'blind', 'boat', 'book', 'bookcase', 'booth', 'bottle', 'box', 'bridge', 'buffet', 'building', 'bulletin board', 'bus', 'cabinet', 'canopy', 'car', 'case', 'ceiling', 'chair', 'chandelier', 'chest of drawers', 'clock', 'coffee table', 'column', 'computer', 'conveyer belt', 'counter', 'countertop', 'cradle', 'crt screen', 'curtain', 'cushion', 'desk', 'dirt track', 'dishwasher', 'door', 'earth', 'escalator', 'fan', 'fence', 'field', 'fireplace', 'flag', 'floor', 'flower', 'food', 'fountain', 'glass', 'grandstand', 'grass', 'hill', 'hood', 'house', 'hovel', 'kitchen island', 'lake', 'lamp', 'land', 'light', 'microwave', 'minibike', 'mirror', 'monitor', 'mountain', 'ottoman', 'oven', 'painting', 'palm', 'path', 'person', 'pier', 'pillow', 'plant', 'plate', 'plaything', 'pole', 'pool table', 'poster', 'pot', 'radiator', 'railing', 'refrigerator', 'river', 'road', 'rock', 'rug', 'runway', 'sand', 'sconce', 'screen door', 'screen', 'sculpture', 'sea', 'seat', 'shelf', 'ship', 'shower', 'sidewalk', 'signboard', 'sink', 'sky', 'skyscraper', 'sofa', 'stage', 'stairs', 'stairway', 'step', 'stool', 'stove', 'streetlight', 'swimming pool', 'swivel chair', 'table', 'tank', 'television receiver', 'tent', 'toilet', 'towel', 'tower', 'trade name', 'traffic light', 'tray', 'tree', 'truck', 'van', 'vase', 'wall', 'wardrobe', 'washer', 'water', 'waterfall', 'windowpane']
+[0, 57, 151, 301, 369, 470, 633, 786, 934, 1058, 1222, 1355, 1405, 1547, 1700, 1797, 1946, 2109, 2272, 2422, 2573, 2735, 2878, 3029, 3099, 3252, 3412, 3572, 3683, 3854, 3991, 4153, 4275, 4340, 4510, 4652, 4820, 4947, 5075, 5228, 5357, 5510, 5673, 5824, 5881, 6032, 6183, 6255, 6405, 6502, 6635, 6788, 6867, 6970, 7132, 7303, 7344, 7497, 7667, 7837, 7990, 8143, 8274, 8414, 8524, 8616, 8769, 8884, 9055, 9222, 9357, 9527, 9591, 9720, 9772, 9910, 10059, 10222, 10323, 10485, 10593, 10743, 10914, 11065, 11203, 11365, 11529, 11699, 11869, 11953, 12086, 12256, 12395, 12546, 12716, 12860, 13001, 13164, 13313, 13445, 13524, 13692, 13862, 14032, 14168, 14246, 14414, 14543, 14653, 14749, 14902, 15070, 15209, 15348, 15400, 15524, 15694, 15864, 15948, 16099, 16262, 16391, 16498, 16668, 16786, 16937, 17088, 17175, 17345, 17409, 17560, 17722, 17778, 17931, 17989, 18140, 18221, 18348, 18497, 18651, 18802, 18973, 19140, 19278, 19389, 19559, 19712, 19788, 19958, 20036]
+find 20190 examples
+['all']
+[0]
+['all']
+[0]
+find 2000 examples
+
+Getting non-iid user indices for cityscapes: 
+city_names:  ['airplane', 'animal', 'apparel', 'arcade machine', 'armchair', 'ashcan', 'awning', 'bag', 'ball', 'bannister', 'bar', 'barrel', 'base', 'basket', 'bathtub', 'bed', 'bench', 'bicycle', 'blanket', 'blind', 'boat', 'book', 'bookcase', 'booth', 'bottle', 'box', 'bridge', 'buffet', 'building', 'bulletin board', 'bus', 'cabinet', 'canopy', 'car', 'case', 'ceiling', 'chair', 'chandelier', 'chest of drawers', 'clock', 'coffee table', 'column', 'computer', 'conveyer belt', 'counter', 'countertop', 'cradle', 'crt screen', 'curtain', 'cushion', 'desk', 'dirt track', 'dishwasher', 'door', 'earth', 'escalator', 'fan', 'fence', 'field', 'fireplace', 'flag', 'floor', 'flower', 'food', 'fountain', 'glass', 'grandstand', 'grass', 'hill', 'hood', 'house', 'hovel', 'kitchen island', 'lake', 'lamp', 'land', 'light', 'microwave', 'minibike', 'mirror', 'monitor', 'mountain', 'ottoman', 'oven', 'painting', 'palm', 'path', 'person', 'pier', 'pillow', 'plant', 'plate', 'plaything', 'pole', 'pool table', 'poster', 'pot', 'radiator', 'railing', 'refrigerator', 'river', 'road', 'rock', 'rug', 'runway', 'sand', 'sconce', 'screen', 'screen door', 'sculpture', 'sea', 'seat', 'shelf', 'ship', 'shower', 'sidewalk', 'signboard', 'sink', 'sky', 'skyscraper', 'sofa', 'stage', 'stairs', 'stairway', 'step', 'stool', 'stove', 'streetlight', 'swimming pool', 'swivel chair', 'table', 'tank', 'television receiver', 'tent', 'toilet', 'towel', 'tower', 'trade name', 'traffic light', 'tray', 'tree', 'truck', 'van', 'vase', 'wall', 'wardrobe', 'washer', 'water', 'waterfall', 'windowpane']
+num_classes:  150
+airplane 57
+animal 94
+apparel 150
+arcade machine 68
+armchair 101
+ashcan 163
+awning 153
+bag 148
+ball 124
+bannister 164
+bar 133
+barrel 50
+base 142
+basket 153
+bathtub 97
+bed 149
+bench 163
+bicycle 163
+blanket 150
+blind 151
+boat 162
+book 143
+bookcase 151
+booth 70
+bottle 153
+box 160
+bridge 160
+buffet 111
+building 171
+bulletin board 137
+bus 162
+cabinet 122
+canopy 65
+car 170
+case 142
+ceiling 168
+chair 127
+chandelier 128
+chest of drawers 153
+clock 129
+coffee table 153
+column 163
+computer 151
+conveyer belt 57
+counter 151
+countertop 151
+cradle 72
+crt screen 150
+curtain 97
+cushion 133
+desk 153
+dirt track 79
+dishwasher 103
+door 162
+earth 171
+escalator 41
+fan 153
+fence 170
+field 170
+fireplace 153
+flag 153
+floor 131
+flower 140
+food 110
+fountain 92
+glass 153
+grandstand 115
+grass 171
+hill 167
+hood 135
+house 170
+hovel 64
+kitchen island 129
+lake 52
+lamp 138
+land 149
+light 163
+microwave 101
+minibike 162
+mirror 108
+monitor 150
+mountain 171
+ottoman 151
+oven 138
+painting 162
+palm 164
+path 170
+person 170
+pier 84
+pillow 133
+plant 170
+plate 139
+plaything 151
+pole 170
+pool table 144
+poster 141
+pot 163
+radiator 149
+railing 132
+refrigerator 79
+river 168
+road 170
+rock 170
+rug 136
+runway 78
+sand 168
+sconce 129
+screen 96
+screen door 110
+sculpture 153
+sea 168
+seat 139
+shelf 139
+ship 52
+shower 124
+sidewalk 170
+signboard 170
+sink 84
+sky 151
+skyscraper 163
+sofa 129
+stage 107
+stairs 170
+stairway 118
+step 151
+stool 151
+stove 87
+streetlight 170
+swimming pool 64
+swivel chair 151
+table 162
+tank 56
+television receiver 153
+tent 58
+toilet 151
+towel 81
+tower 127
+trade name 149
+traffic light 154
+tray 151
+tree 171
+truck 167
+van 138
+vase 111
+wall 170
+wardrobe 153
+washer 76
+water 170
+waterfall 78
+windowpane 154
+city_lens:  [57, 94, 150, 68, 101, 163, 153, 148, 124, 164, 133, 50, 142, 153, 97, 149, 163, 163, 150, 151, 162, 143, 151, 70, 153, 160, 160, 111, 171, 137, 162, 122, 65, 170, 142, 168, 127, 128, 153, 129, 153, 163, 151, 57, 151, 151, 72, 150, 97, 133, 153, 79, 103, 162, 171, 41, 153, 170, 170, 153, 153, 131, 140, 110, 92, 153, 115, 171, 167, 135, 170, 64, 129, 52, 138, 149, 163, 101, 162, 108, 150, 171, 151, 138, 162, 164, 170, 170, 84, 133, 170, 139, 151, 170, 144, 141, 163, 149, 132, 79, 168, 170, 170, 136, 78, 168, 129, 96, 110, 153, 168, 139, 139, 52, 124, 170, 170, 84, 151, 163, 129, 107, 170, 118, 151, 151, 87, 170, 64, 151, 162, 56, 153, 58, 151, 81, 127, 149, 154, 151, 171, 167, 138, 111, 170, 153, 76, 170, 78, 154]
+num_users_per_city: 450 / 150 = 3
+Time consumed to get non-iid user indices: 0.02s
+
+exp_name :fed_20230606_210126_train_bisenetv2_c150_e800_frac[5]_iid[False]_E[2]_B[8]_lr[0.05]_users[450]_opti[sgd]_sche[step]
+
+Training global model on 5 of 450 users locally for 800 epochs
+
+
+| Global Training Round : 0 |
+local update
+
+User idx : 239
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02

@@ -1,0 +1,31 @@
+os.getcwd():  /home/mjx/MIAO_code_noshare_g_ditill/bisenetv2_fedavg_miao
+
+Experimental details:
+    Dataset                 : ade20k
+    Dataset root_dir        : ../ade20k_erase_150C1
+    USE_ERASE_DATA          : True
+    Number of classes       : 150
+    Split data (train data) : train
+    Model                   : bisenetv2
+    resume from Checkpoint  : 
+    Optimizer               : sgd
+    Scheduler               : step
+    Learning rate           : 0.05
+    Momentum                : 0.99
+    weight decay            : 0.0005
+    Global Rounds           : 800
+
+    Federated parameters:
+    Non-IID
+    Number of global users  : 450
+    Fraction num of users   : 5
+    Local Epochs            : 2
+    Local Batch size        : 8
+
+    Logging parameters:
+    save_frequency          : 20
+    local_test_frequency    : 9999
+    global_test_frequency   : 20
+    USE_WANDB               : False
+
+device: cuda

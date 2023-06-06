@@ -1,0 +1,19 @@
+os.getcwd():  /root/paddlejob/workspace/env_run/bisenetv2_fedavg_miao
+device: cuda
+find 500 examples
+args.data:  val
+resume from:  saved.pth
+
+*******************************************
+Evaluate global model on global Test dataset
+global correct: 87.6
+average row correct: ['96.0', '69.1', '87.5', '40.6', '39.3', '36.2', '41.2', '57.4', '92.7', '37.6', '96.2', '54.2', '58.8', '83.9', '62.9', '45.4', '69.6', '73.0', '72.8']
+IoU: ['91.6', '57.7', '77.0', '22.8', '26.1', '33.0', '38.1', '52.7', '85.6', '34.3', '78.6', '47.8', '34.2', '77.3', '14.0', '30.7', '10.8', '20.2', '61.1']
+mean IoU: 47.0
+
+Results after 1500 global rounds of training:
+|---- Global Test Accuracy: 87.58%
+|---- Global Test IoU: 47.03%
+
+Total Run Time: 38.88s
+*******************************************

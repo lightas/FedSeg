@@ -1,0 +1,77 @@
+os.getcwd():  /root/paddlejob/workspace/env_run/bisenetv2_fedavg_miao
+
+Experimental details:
+    Dataset                 : cityscapes
+    Dataset root_dir        : ../data/cityscapes
+    USE_ERASE_DATA          : 0
+    Number of classes       : 19
+    Split data (train data) : train
+    Model                   : bisenetv2
+    resume from Checkpoint  : 
+    Optimizer               : sgd
+    Scheduler               : step
+    Learning rate           : 0.05
+    Momentum                : 0.9
+    weight decay            : 0.0005
+    Global Rounds           : 1500
+
+    Federated parameters:
+    IID
+    Number of global users  : 144
+    Fraction num of users   : 5
+    Local Epochs            : 2
+    Local Batch size        : 8
+
+    Logging parameters:
+    save_frequency          : 20
+    local_test_frequency    : 9999
+    global_test_frequency   : 20
+    USE_WANDB               : 0
+
+device: cuda
+find 2975 examples
+find 500 examples
+exp_name :fed_20220706_161819_train_bisenetv2_c19_e1500_frac[5]_iid[1]_E[2]_B[8]_lr[0.05]_users[144]_opti[sgd]_sche[step]
+
+Training global model on 5 of 144 users locally for 1500 epochs
+
+
+| Global Training Round : 0 |
+
+User idx : 15
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 20 images	Loss: 71.875221
+
+User idx : 102
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 20 images	Loss: 62.022320
+
+User idx : 54
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 20 images	Loss: 87.035156
+
+User idx : 43
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 20 images	Loss: 112.195374
+
+User idx : 80
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 20 images	Loss: 65.574226
+
+| Global Training Round 0 Summary |
+Local Train One global epoch loss_avg: 103.039024

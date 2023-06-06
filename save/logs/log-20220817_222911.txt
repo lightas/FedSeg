@@ -1,0 +1,832 @@
+os.getcwd():  /root/paddlejob/workspace/env_run/bisenetv2_fedavg_miao
+
+Experimental details:
+    Dataset                 : cityscapes
+    Dataset root_dir        : ../data/cityscapes_split_erase19
+    USE_ERASE_DATA          : True
+    Number of classes       : 19
+    Split data (train data) : train
+    Model                   : bisenetv2
+    resume from Checkpoint  : 
+    Optimizer               : sgd
+    Scheduler               : step
+    Learning rate           : 0.05
+    Momentum                : 0.99
+    weight decay            : 0.0005
+    Global Rounds           : 1500
+
+    Federated parameters:
+    Non-IID
+    Number of global users  : 152
+    Fraction num of users   : 5
+    Local Epochs            : 2
+    Local Batch size        : 8
+
+    Logging parameters:
+    save_frequency          : 20
+    local_test_frequency    : 9999
+    global_test_frequency   : 20
+    USE_WANDB               : False
+
+device: cuda
+find 2975 examples
+find 500 examples
+
+Getting non-iid user indices for cityscapes: 
+city_names:  ['bicycle', 'building', 'bus', 'car', 'fence', 'motorcycle', 'person', 'pole', 'rider', 'road', 'sidewalk', 'sky', 'terrain', 'traffic_light', 'traffic_sign', 'train', 'truck', 'vegetation', 'wall']
+num_classes:  19
+bicycle 156
+building 156
+bus 156
+car 181
+fence 156
+motorcycle 156
+person 156
+pole 156
+rider 156
+road 156
+sidewalk 156
+sky 156
+terrain 156
+traffic_light 156
+traffic_sign 156
+train 142
+truck 156
+vegetation 156
+wall 156
+city_lens:  [156, 156, 156, 181, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 142, 156, 156, 156]
+num_users_per_city: 152 / 19 = 8
+Time consumed to get non-iid user indices: 0.01s
+
+exp_name :fed_20220817_222911_train_bisenetv2_c19_e1500_frac[5]_iid[False]_E[2]_B[8]_lr[0.05]_users[152]_opti[sgd]_sche[step]
+
+Training global model on 5 of 152 users locally for 1500 epochs
+
+
+| Global Training Round : 0 |
+Extracting prototypes finished
+local update
+
+User idx : 96
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 19 images	Loss: 9.441238
+Loss_CE:9.441238 | loss_contrast:0.000000
+
+User idx : 81
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 19 images	Loss: 12.388774
+Loss_CE:12.388774 | loss_contrast:0.000000
+
+User idx : 32
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 19 images	Loss: 9.591358
+Loss_CE:9.591358 | loss_contrast:0.000000
+
+User idx : 79
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 23 images	Loss: 8.858440
+Loss_CE:8.858440 | loss_contrast:0.000000
+
+User idx : 128
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 19 images	Loss: 6.024945
+Loss_CE:6.024945 | loss_contrast:0.000000
+
+| Global Training Round 0 Summary |
+Local Train One global epoch loss_avg: 9.774869
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 1 |
+Extracting prototypes...
+
+User idx : 6
+
+User idx : 29
+
+User idx : 120
+
+User idx : 68
+
+User idx : 87
+Extracting prototypes finished
+local update
+
+User idx : 6
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 1 | Local Epochs : 2 | 19 images	Loss: 2.491602
+Loss_CE:2.338311 | loss_contrast:1.532912
+
+User idx : 29
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 1 | Local Epochs : 2 | 22 images	Loss: 4.818874
+Loss_CE:4.661317 | loss_contrast:1.575563
+
+User idx : 120
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 1 | Local Epochs : 2 | 17 images	Loss: 0.942189
+Loss_CE:0.785470 | loss_contrast:1.567192
+
+User idx : 68
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 1 | Local Epochs : 2 | 19 images	Loss: 1.253311
+Loss_CE:1.101066 | loss_contrast:1.522452
+
+User idx : 87
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 1 | Local Epochs : 2 | 23 images	Loss: 4.239260
+Loss_CE:4.080847 | loss_contrast:1.584135
+
+| Global Training Round 1 Summary |
+Local Train One global epoch loss_avg: 3.766248
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 2 |
+Extracting prototypes...
+
+User idx : 97
+
+User idx : 106
+
+User idx : 65
+
+User idx : 24
+
+User idx : 30
+Extracting prototypes finished
+local update
+
+User idx : 97
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 2 | Local Epochs : 2 | 19 images	Loss: 2.080674
+Loss_CE:1.855525 | loss_contrast:2.251492
+
+User idx : 106
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 2 | Local Epochs : 2 | 19 images	Loss: 0.684500
+Loss_CE:0.462009 | loss_contrast:2.224913
+
+User idx : 65
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 2 | Local Epochs : 2 | 19 images	Loss: 1.625982
+Loss_CE:1.416968 | loss_contrast:2.090147
+
+User idx : 24
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 2 | Local Epochs : 2 | 22 images	Loss: 5.650112
+Loss_CE:5.448240 | loss_contrast:2.018718
+
+User idx : 30
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 2 | Local Epochs : 2 | 22 images	Loss: 5.110212
+Loss_CE:4.907315 | loss_contrast:2.028970
+
+| Global Training Round 2 Summary |
+Local Train One global epoch loss_avg: 3.386503
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 3 |
+Extracting prototypes...
+
+User idx : 67
+
+User idx : 145
+
+User idx : 31
+
+User idx : 40
+
+User idx : 63
+Extracting prototypes finished
+local update
+
+User idx : 67
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 3 | Local Epochs : 2 | 19 images	Loss: 1.070778
+Loss_CE:0.826781 | loss_contrast:2.439971
+
+User idx : 145
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 3 | Local Epochs : 2 | 19 images	Loss: 6.780222
+Loss_CE:6.515740 | loss_contrast:2.644813
+
+User idx : 31
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 2, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 2, lr: 5.000e-02
+| Global Round : 3 | Local Epochs : 2 | 27 images	Loss: 2.544625
+Loss_CE:2.303306 | loss_contrast:2.413187
+
+User idx : 40
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 3 | Local Epochs : 2 | 19 images	Loss: 0.762273
+Loss_CE:0.502588 | loss_contrast:2.596846
+
+User idx : 63
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 3 | Local Epochs : 2 | 23 images	Loss: 1.070099
+Loss_CE:0.808761 | loss_contrast:2.613382
+
+| Global Training Round 3 Summary |
+Local Train One global epoch loss_avg: 2.218003
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 4 |
+Extracting prototypes...
+
+User idx : 43
+
+User idx : 75
+
+User idx : 30
+
+User idx : 45
+
+User idx : 41
+Extracting prototypes finished
+local update
+
+User idx : 43
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 4 | Local Epochs : 2 | 19 images	Loss: 0.862531
+Loss_CE:0.599099 | loss_contrast:2.634311
+
+User idx : 75
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 4 | Local Epochs : 2 | 19 images	Loss: 4.268200
+Loss_CE:3.995930 | loss_contrast:2.722705
+
+User idx : 30
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 4 | Local Epochs : 2 | 22 images	Loss: 2.572134
+Loss_CE:2.300223 | loss_contrast:2.719115
+
+User idx : 45
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 4 | Local Epochs : 2 | 19 images	Loss: 1.005226
+Loss_CE:0.739535 | loss_contrast:2.656905
+
+User idx : 41
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 4 | Local Epochs : 2 | 19 images	Loss: 0.697475
+Loss_CE:0.433399 | loss_contrast:2.640760
+
+| Global Training Round 4 Summary |
+Local Train One global epoch loss_avg: 2.463202
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 5 |
+Extracting prototypes...
+
+User idx : 147
+
+User idx : 103
+
+User idx : 134
+
+User idx : 9
+
+User idx : 146
+Extracting prototypes finished
+local update
+
+User idx : 147
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 5 | Local Epochs : 2 | 19 images	Loss: 4.301773
+Loss_CE:4.000125 | loss_contrast:3.016473
+
+User idx : 103
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 5 | Local Epochs : 2 | 23 images	Loss: 4.108983
+Loss_CE:3.798862 | loss_contrast:3.101205
+
+User idx : 134
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 5 | Local Epochs : 2 | 19 images	Loss: 2.077867
+Loss_CE:1.768017 | loss_contrast:3.098501
+
+User idx : 9
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 5 | Local Epochs : 2 | 19 images	Loss: 9.317214
+Loss_CE:9.006511 | loss_contrast:3.107033
+
+User idx : 146
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 5 | Local Epochs : 2 | 19 images	Loss: 2.226111
+Loss_CE:1.922693 | loss_contrast:3.034184
+
+| Global Training Round 5 Summary |
+Local Train One global epoch loss_avg: 3.845882
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 6 |
+Extracting prototypes...
+
+User idx : 35
+
+User idx : 1
+
+User idx : 39
+
+User idx : 66
+
+User idx : 104
+Extracting prototypes finished
+local update
+
+User idx : 35
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 6 | Local Epochs : 2 | 19 images	Loss: 2.748853
+Loss_CE:2.427627 | loss_contrast:3.212261
+
+User idx : 1
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 6 | Local Epochs : 2 | 19 images	Loss: 0.651820
+Loss_CE:0.328429 | loss_contrast:3.233915
+
+User idx : 39
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 6 | Local Epochs : 2 | 23 images	Loss: 3.276604
+Loss_CE:2.953013 | loss_contrast:3.235908
+
+User idx : 66
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 6 | Local Epochs : 2 | 19 images	Loss: 1.334023
+Loss_CE:1.019000 | loss_contrast:3.150224
+
+User idx : 104
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 6 | Local Epochs : 2 | 19 images	Loss: 0.516709
+Loss_CE:0.193619 | loss_contrast:3.230895
+
+| Global Training Round 6 Summary |
+Local Train One global epoch loss_avg: 1.827017
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 7 |
+Extracting prototypes...
+
+User idx : 87
+
+User idx : 119
+
+User idx : 141
+
+User idx : 4
+
+User idx : 86
+Extracting prototypes finished
+local update
+
+User idx : 87
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 7 | Local Epochs : 2 | 23 images	Loss: 5.185225
+Loss_CE:4.846775 | loss_contrast:3.384507
+
+User idx : 119
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 7 | Local Epochs : 2 | 23 images	Loss: 0.822583
+Loss_CE:0.488137 | loss_contrast:3.344460
+
+User idx : 141
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 7 | Local Epochs : 2 | 19 images	Loss: 5.512391
+Loss_CE:5.173003 | loss_contrast:3.393881
+
+User idx : 4
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 7 | Local Epochs : 2 | 19 images	Loss: 1.033526
+Loss_CE:0.701685 | loss_contrast:3.318406
+
+User idx : 86
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 7 | Local Epochs : 2 | 19 images	Loss: 3.619770
+Loss_CE:3.283183 | loss_contrast:3.365870
+
+| Global Training Round 7 Summary |
+Local Train One global epoch loss_avg: 4.084859
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 8 |
+Extracting prototypes...
+
+User idx : 7
+
+User idx : 94
+
+User idx : 63
+
+User idx : 13
+
+User idx : 135
+Extracting prototypes finished
+local update
+
+User idx : 7
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 8 | Local Epochs : 2 | 23 images	Loss: 1.311264
+Loss_CE:0.971432 | loss_contrast:3.398320
+
+User idx : 94
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 8 | Local Epochs : 2 | 19 images	Loss: 1.480686
+Loss_CE:1.148417 | loss_contrast:3.322691
+
+User idx : 63
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 8 | Local Epochs : 2 | 23 images	Loss: 0.912856
+Loss_CE:0.561693 | loss_contrast:3.511629
+
+User idx : 13
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 8 | Local Epochs : 2 | 19 images	Loss: 3.592693
+Loss_CE:3.245336 | loss_contrast:3.473571
+
+User idx : 135
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 8 | Local Epochs : 2 | 23 images	Loss: 1.612866
+Loss_CE:1.262376 | loss_contrast:3.504897
+
+| Global Training Round 8 Summary |
+Local Train One global epoch loss_avg: 2.365977
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 9 |
+Extracting prototypes...
+
+User idx : 111
+
+User idx : 94
+
+User idx : 82
+
+User idx : 35
+
+User idx : 85
+Extracting prototypes finished
+local update
+
+User idx : 111
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 9 | Local Epochs : 2 | 23 images	Loss: 0.976756
+Loss_CE:0.623480 | loss_contrast:3.532763
+
+User idx : 94
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 9 | Local Epochs : 2 | 19 images	Loss: 1.471251
+Loss_CE:1.132365 | loss_contrast:3.388858
+
+User idx : 82
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 9 | Local Epochs : 2 | 19 images	Loss: 4.150514
+Loss_CE:3.800643 | loss_contrast:3.498705
+
+User idx : 35
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 9 | Local Epochs : 2 | 19 images	Loss: 2.866771
+Loss_CE:2.511995 | loss_contrast:3.547761
+
+User idx : 85
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 9 | Local Epochs : 2 | 19 images	Loss: 3.901507
+Loss_CE:3.558667 | loss_contrast:3.428402
+
+| Global Training Round 9 Summary |
+Local Train One global epoch loss_avg: 2.986460
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 10 |
+Extracting prototypes...
+
+User idx : 13
+
+User idx : 138
+
+User idx : 46
+
+User idx : 89
+
+User idx : 99
+Extracting prototypes finished
+local update
+
+User idx : 13
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 10 | Local Epochs : 2 | 19 images	Loss: 2.646167
+Loss_CE:2.286068 | loss_contrast:3.600987
+
+User idx : 138
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 10 | Local Epochs : 2 | 19 images	Loss: 3.786928
+Loss_CE:3.423085 | loss_contrast:3.638434
+
+User idx : 46
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 10 | Local Epochs : 2 | 19 images	Loss: 0.987376
+Loss_CE:0.632592 | loss_contrast:3.547839
+
+User idx : 89
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 10 | Local Epochs : 2 | 19 images	Loss: 0.949818
+Loss_CE:0.600852 | loss_contrast:3.489657
+
+User idx : 99
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 10 | Local Epochs : 2 | 19 images	Loss: 2.129166
+Loss_CE:1.762078 | loss_contrast:3.670887
+
+| Global Training Round 10 Summary |
+Local Train One global epoch loss_avg: 2.271858
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 11 |
+Extracting prototypes...
+
+User idx : 120
+
+User idx : 105
+
+User idx : 93
+
+User idx : 148
+
+User idx : 66
+Extracting prototypes finished
+local update
+
+User idx : 120
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 11 | Local Epochs : 2 | 17 images	Loss: 3.104750
+Loss_CE:2.720533 | loss_contrast:3.842169
+
+User idx : 105
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 11 | Local Epochs : 2 | 19 images	Loss: 0.926212
+Loss_CE:0.553941 | loss_contrast:3.722708
+
+User idx : 93
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 11 | Local Epochs : 2 | 19 images	Loss: 1.133302
+Loss_CE:0.788679 | loss_contrast:3.446230
+
+User idx : 148
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 11 | Local Epochs : 2 | 19 images	Loss: 2.805075
+Loss_CE:2.436576 | loss_contrast:3.684991
+
+User idx : 66
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 11 | Local Epochs : 2 | 19 images	Loss: 1.167297
+Loss_CE:0.799328 | loss_contrast:3.679691
+
+| Global Training Round 11 Summary |
+Local Train One global epoch loss_avg: 2.000852
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 12 |
+Extracting prototypes...
+
+User idx : 15
+
+User idx : 51
+
+User idx : 143

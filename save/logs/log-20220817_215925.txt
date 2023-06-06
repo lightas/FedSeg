@@ -1,0 +1,334 @@
+os.getcwd():  /root/paddlejob/workspace/env_run/bisenetv2_fedavg_miao
+
+Experimental details:
+    Dataset                 : cityscapes
+    Dataset root_dir        : ../data/cityscapes_split_erase19
+    USE_ERASE_DATA          : True
+    Number of classes       : 19
+    Split data (train data) : train
+    Model                   : bisenetv2
+    resume from Checkpoint  : 
+    Optimizer               : sgd
+    Scheduler               : step
+    Learning rate           : 0.05
+    Momentum                : 0.99
+    weight decay            : 0.0005
+    Global Rounds           : 1500
+
+    Federated parameters:
+    Non-IID
+    Number of global users  : 152
+    Fraction num of users   : 5
+    Local Epochs            : 2
+    Local Batch size        : 8
+
+    Logging parameters:
+    save_frequency          : 20
+    local_test_frequency    : 9999
+    global_test_frequency   : 20
+    USE_WANDB               : False
+
+device: cuda
+find 2975 examples
+find 500 examples
+
+Getting non-iid user indices for cityscapes: 
+city_names:  ['bicycle', 'building', 'bus', 'car', 'fence', 'motorcycle', 'person', 'pole', 'rider', 'road', 'sidewalk', 'sky', 'terrain', 'traffic_light', 'traffic_sign', 'train', 'truck', 'vegetation', 'wall']
+num_classes:  19
+bicycle 156
+building 156
+bus 156
+car 181
+fence 156
+motorcycle 156
+person 156
+pole 156
+rider 156
+road 156
+sidewalk 156
+sky 156
+terrain 156
+traffic_light 156
+traffic_sign 156
+train 142
+truck 156
+vegetation 156
+wall 156
+city_lens:  [156, 156, 156, 181, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 142, 156, 156, 156]
+num_users_per_city: 152 / 19 = 8
+Time consumed to get non-iid user indices: 0.01s
+
+exp_name :fed_20220817_215925_train_bisenetv2_c19_e1500_frac[5]_iid[False]_E[2]_B[8]_lr[0.05]_users[152]_opti[sgd]_sche[step]
+
+Training global model on 5 of 152 users locally for 1500 epochs
+
+
+| Global Training Round : 0 |
+Extracting prototypes finished
+local update
+
+User idx : 58
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 19 images	Loss: 11.151903
+Loss_CE:11.151903 | loss_contrast:0.000000
+
+User idx : 86
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 19 images	Loss: 8.943372
+Loss_CE:8.943372 | loss_contrast:0.000000
+
+User idx : 32
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 19 images	Loss: 10.352692
+Loss_CE:10.352692 | loss_contrast:0.000000
+
+User idx : 150
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 19 images	Loss: 6.481730
+Loss_CE:6.481730 | loss_contrast:0.000000
+
+User idx : 17
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 19 images	Loss: 5.410761
+Loss_CE:5.410761 | loss_contrast:0.000000
+
+| Global Training Round 0 Summary |
+Local Train One global epoch loss_avg: 9.000068
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 1 |
+Extracting prototypes...
+
+User idx : 62
+
+User idx : 107
+
+User idx : 21
+
+User idx : 70
+
+User idx : 61
+Extracting prototypes finished
+local update
+
+User idx : 62
+tensor(1.3900, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+tensor(1.3980, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+tensor(1.3868, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+tensor(1.4050, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 1 | Local Epochs : 2 | 19 images	Loss: 1.253017
+Loss_CE:1.112519 | loss_contrast:1.404982
+
+User idx : 107
+tensor(1.5600, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+tensor(1.5752, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+tensor(1.5612, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+tensor(1.5667, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 1 | Local Epochs : 2 | 19 images	Loss: 0.787095
+Loss_CE:0.630428 | loss_contrast:1.566669
+
+User idx : 21
+tensor(1.5782, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+tensor(1.5888, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+tensor(1.5736, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+tensor(1.5567, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 1 | Local Epochs : 2 | 19 images	Loss: 1.354056
+Loss_CE:1.198388 | loss_contrast:1.556683
+
+User idx : 70
+tensor(1.5403, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+tensor(1.5422, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+tensor(1.5379, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+tensor(1.5348, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 1 | Local Epochs : 2 | 19 images	Loss: 1.496439
+Loss_CE:1.342954 | loss_contrast:1.534841
+
+User idx : 61
+tensor(1.4019, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+tensor(1.4095, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+tensor(1.3925, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+tensor(1.3960, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 1 | Local Epochs : 2 | 19 images	Loss: 0.982015
+Loss_CE:0.842410 | loss_contrast:1.396047
+
+| Global Training Round 1 Summary |
+Local Train One global epoch loss_avg: 1.802179
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 2 |
+Extracting prototypes...
+
+User idx : 93
+
+User idx : 95
+
+User idx : 108
+
+User idx : 81
+
+User idx : 61
+Extracting prototypes finished
+local update
+
+User idx : 93
+tensor(25.8812, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+tensor(1.3401e-09, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+tensor(7.2305e-10, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+tensor(-2.2101e-10, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 2 | Local Epochs : 2 | 19 images	Loss: 2.109279
+Loss_CE:2.109279 | loss_contrast:-0.000000
+
+User idx : 95
+tensor(21.2443, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+tensor(1.1001e-09, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+tensor(2.9628e-09, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+tensor(3.6206e-09, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 2 | Local Epochs : 2 | 23 images	Loss: 3.114622
+Loss_CE:3.114622 | loss_contrast:0.000000
+
+User idx : 108
+tensor(4.8377, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+tensor(nan, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+tensor(nan, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+tensor(nan, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 2 | Local Epochs : 2 | 19 images	Loss: nan
+Loss_CE:nan | loss_contrast:nan
+
+User idx : 81
+tensor(25.8644, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+tensor(nan, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+tensor(nan, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+tensor(nan, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 2 | Local Epochs : 2 | 19 images	Loss: nan
+Loss_CE:nan | loss_contrast:nan
+
+User idx : 61
+tensor(14.9359, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+tensor(1.5355, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+tensor(1.3966, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+tensor(1.3927, device='cuda:0', grad_fn=<MeanBackward0>)
+**********
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 2 | Local Epochs : 2 | 19 images	Loss: 0.607161
+Loss_CE:0.467894 | loss_contrast:1.392673
+
+| Global Training Round 2 Summary |
+Local Train One global epoch loss_avg: nan
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 3 |
+Extracting prototypes...
+
+User idx : 113
+
+User idx : 81
+
+User idx : 61

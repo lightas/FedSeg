@@ -1,0 +1,78 @@
+os.getcwd():  /home/mjx/MIAO_code_noshare_g_ditill/bisenetv2_fedavg_miao
+
+Experimental details:
+    Dataset                 : voc
+    Dataset root_dir        : ../voc
+    USE_ERASE_DATA          : True
+    Number of classes       : 20
+    Split data (train data) : train
+    Model                   : bisenetv2
+    resume from Checkpoint  : 
+    Optimizer               : sgd
+    Scheduler               : step
+    Learning rate           : 0.05
+    Momentum                : 0.99
+    weight decay            : 0.0005
+    Global Rounds           : 1200
+
+    Federated parameters:
+    Non-IID
+    Number of global users  : 60
+    Fraction num of users   : 5
+    Local Epochs            : 2
+    Local Batch size        : 8
+
+    Logging parameters:
+    save_frequency          : 20
+    local_test_frequency    : 9999
+    global_test_frequency   : 20
+    USE_WANDB               : False
+
+device: cuda
+['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor']
+[0, 86, 151, 244, 320, 387, 462, 539, 636, 683, 747, 809, 900, 965, 1041, 1126, 1191, 1254, 1310, 1389]
+['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor']
+[0, 86, 151, 244, 320, 387, 462, 539, 636, 683, 747, 809, 900, 965, 1041, 1126, 1191, 1254, 1310, 1389]
+find 1464 examples
+['all']
+[0]
+['all']
+[0]
+find 1449 examples
+
+Getting non-iid user indices for cityscapes: 
+city_names:  ['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor']
+num_classes:  20
+aeroplane 86
+bicycle 65
+bird 93
+boat 76
+bottle 67
+bus 75
+car 77
+cat 97
+chair 47
+cow 64
+diningtable 62
+dog 91
+horse 65
+motorbike 76
+person 85
+pottedplant 65
+sheep 63
+sofa 56
+train 79
+tvmonitor 75
+city_lens:  [86, 65, 93, 76, 67, 75, 77, 97, 47, 64, 62, 91, 65, 76, 85, 65, 63, 56, 79, 75]
+num_users_per_city: 60 / 20 = 3
+Time consumed to get non-iid user indices: 0.00s
+
+exp_name :fed_20230606_204912_train_bisenetv2_c20_e1200_frac[5]_iid[False]_E[2]_B[8]_lr[0.05]_users[60]_opti[sgd]_sche[step]
+
+Training global model on 5 of 60 users locally for 1200 epochs
+
+
+| Global Training Round : 0 |
+local update
+
+User idx : 22

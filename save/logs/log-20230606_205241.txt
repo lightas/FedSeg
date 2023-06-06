@@ -1,0 +1,147 @@
+os.getcwd():  /home/mjx/MIAO_code_noshare_g_ditill/bisenetv2_fedavg_miao
+
+Experimental details:
+    Dataset                 : voc
+    Dataset root_dir        : ../voc
+    USE_ERASE_DATA          : True
+    Number of classes       : 20
+    Split data (train data) : train
+    Model                   : bisenetv2
+    resume from Checkpoint  : 
+    Optimizer               : sgd
+    Scheduler               : step
+    Learning rate           : 0.05
+    Momentum                : 0.99
+    weight decay            : 0.0005
+    Global Rounds           : 1200
+
+    Federated parameters:
+    Non-IID
+    Number of global users  : 60
+    Fraction num of users   : 5
+    Local Epochs            : 2
+    Local Batch size        : 8
+
+    Logging parameters:
+    save_frequency          : 20
+    local_test_frequency    : 9999
+    global_test_frequency   : 20
+    USE_WANDB               : False
+
+device: cuda
+['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor']
+[0, 86, 151, 244, 320, 387, 462, 539, 636, 683, 747, 809, 900, 965, 1041, 1126, 1191, 1254, 1310, 1389]
+['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor']
+[0, 86, 151, 244, 320, 387, 462, 539, 636, 683, 747, 809, 900, 965, 1041, 1126, 1191, 1254, 1310, 1389]
+find 1464 examples
+['all']
+[0]
+['all']
+[0]
+find 1449 examples
+
+Getting non-iid user indices for cityscapes: 
+city_names:  ['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor']
+num_classes:  20
+aeroplane 86
+bicycle 65
+bird 93
+boat 76
+bottle 67
+bus 75
+car 77
+cat 97
+chair 47
+cow 64
+diningtable 62
+dog 91
+horse 65
+motorbike 76
+person 85
+pottedplant 65
+sheep 63
+sofa 56
+train 79
+tvmonitor 75
+city_lens:  [86, 65, 93, 76, 67, 75, 77, 97, 47, 64, 62, 91, 65, 76, 85, 65, 63, 56, 79, 75]
+num_users_per_city: 60 / 20 = 3
+Time consumed to get non-iid user indices: 0.00s
+
+exp_name :fed_20230606_205241_train_bisenetv2_c20_e1200_frac[5]_iid[False]_E[2]_B[8]_lr[0.05]_users[60]_opti[sgd]_sche[step]
+
+Training global model on 5 of 60 users locally for 1200 epochs
+
+
+| Global Training Round : 0 |
+local update
+
+User idx : 2
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 2, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 2, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 30 images	Loss: 12.939902
+Loss_CE:12.939902
+
+User idx : 46
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 21 images	Loss: 20.028637
+Loss_CE:20.028637
+
+User idx : 50
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 21 images	Loss: 11.578640
+Loss_CE:11.578640
+
+User idx : 1
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 2, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 2, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 28 images	Loss: 19.162643
+Loss_CE:19.162643
+
+User idx : 42
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 2, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 2, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 28 images	Loss: 15.132283
+Loss_CE:15.132283
+
+| Global Training Round 0 Summary |
+Local Train One global epoch loss_avg: 17.028914
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 1 |
+local update
+
+User idx : 55
+Extracting prototypes...
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 2, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 2, lr: 5.000e-02
+| Global Round : 1 | Local Epochs : 2 | 26 images	Loss: 12.306910
+Loss_CE:11.644419 | loss_contrast:3.341043 loss_pseudo: 3.283861
+
+User idx : 53

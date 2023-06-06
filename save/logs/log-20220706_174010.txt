@@ -1,0 +1,47 @@
+os.getcwd():  /root/paddlejob/workspace/env_run/bisenetv2_fedavg_miao
+
+Experimental details:
+    Dataset                 : cityscapes
+    Dataset root_dir        : ../data/cityscapes
+    USE_ERASE_DATA          : 0
+    Number of classes       : 19
+    Split data (train data) : train
+    Model                   : bisenetv2
+    resume from Checkpoint  : 
+    Optimizer               : sgd
+    Scheduler               : step
+    Learning rate           : 0.05
+    Momentum                : 0.9
+    weight decay            : 0.0005
+    Global Rounds           : 1500
+
+    Federated parameters:
+    IID
+    Number of global users  : 144
+    Fraction num of users   : 5
+    Local Epochs            : 2
+    Local Batch size        : 8
+
+    Logging parameters:
+    save_frequency          : 20
+    local_test_frequency    : 9999
+    global_test_frequency   : 20
+    USE_WANDB               : 0
+
+device: cuda
+find 2975 examples
+find 500 examples
+exp_name :fed_20220706_174010_train_bisenetv2_c19_e1500_frac[5]_iid[1]_E[2]_B[8]_lr[0.05]_users[144]_opti[sgd]_sche[step]
+
+Training global model on 5 of 144 users locally for 1500 epochs
+
+
+| Global Training Round : 0 |
+torch.Size([1, 19, 1, 1, 1])
+torch.Size([8, 1, 1, 64, 128])
+tensor([  0.,   1.,   2.,   3.,   4.,   5.,   6.,   7.,   8.,   9.,  10.,  11.,
+         12.,  13.,  16.,  17.,  18., 255.], device='cuda:0')
+torch.Size([8, 19, 1, 64, 128])
+torch.Size([8, 1, 128, 64, 128])
+torch.Size([8, 19, 128, 64, 128])
+torch.Size([19, 128])

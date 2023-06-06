@@ -1,0 +1,69 @@
+os.getcwd():  /root/paddlejob/workspace/env_run/bisenetv2_fedavg_miao
+
+Experimental details:
+    Dataset                 : camvid
+    Dataset root_dir        : ../data/camvid_erase_11C1
+    USE_ERASE_DATA          : True
+    Number of classes       : 11
+    Split data (train data) : train
+    Model                   : bisenetv2
+    resume from Checkpoint  : 
+    Optimizer               : sgd
+    Scheduler               : step
+    Learning rate           : 0.05
+    Momentum                : 0.99
+    weight decay            : 0.0005
+    Global Rounds           : 1500
+
+    Federated parameters:
+    Non-IID
+    Number of global users  : 22
+    Fraction num of users   : 5
+    Local Epochs            : 2
+    Local Batch size        : 8
+
+    Logging parameters:
+    save_frequency          : 20
+    local_test_frequency    : 9999
+    global_test_frequency   : 2
+    USE_WANDB               : False
+
+device: cuda
+['bicyclist', 'building', 'car', 'column_pole', 'fence', 'pedestrian', 'road', 'sidewalk', 'sing_symbol', 'sky', 'tree']
+[0, 48, 90, 132, 174, 216, 258, 300, 342, 384, 426]
+['bicyclist', 'building', 'car', 'column_pole', 'fence', 'pedestrian', 'road', 'sidewalk', 'sing_symbol', 'sky', 'tree']
+[0, 48, 90, 132, 174, 216, 258, 300, 342, 384, 426]
+find 468 examples
+['all']
+[0]
+['all']
+[0]
+find 233 examples
+
+Getting non-iid user indices for cityscapes: 
+city_names:  ['bicyclist', 'building', 'car', 'column_pole', 'fence', 'pedestrian', 'road', 'sidewalk', 'sing_symbol', 'sky', 'tree']
+num_classes:  11
+bicyclist 48
+building 42
+car 42
+column_pole 42
+fence 42
+pedestrian 42
+road 42
+sidewalk 42
+sing_symbol 42
+sky 42
+tree 42
+city_lens:  [48, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42]
+num_users_per_city: 22 / 11 = 2
+Time consumed to get non-iid user indices: 0.00s
+
+exp_name :fed_20220917_205718_train_bisenetv2_c11_e1500_frac[5]_iid[False]_E[2]_B[8]_lr[0.05]_users[22]_opti[sgd]_sche[step]
+
+Training global model on 5 of 22 users locally for 1500 epochs
+
+
+| Global Training Round : 0 |
+local update
+
+User idx : 1

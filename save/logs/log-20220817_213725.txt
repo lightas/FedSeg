@@ -1,0 +1,134 @@
+os.getcwd():  /root/paddlejob/workspace/env_run/bisenetv2_fedavg_miao
+
+Experimental details:
+    Dataset                 : cityscapes
+    Dataset root_dir        : ../data/cityscapes_split_erase19
+    USE_ERASE_DATA          : True
+    Number of classes       : 19
+    Split data (train data) : train
+    Model                   : bisenetv2
+    resume from Checkpoint  : 
+    Optimizer               : sgd
+    Scheduler               : step
+    Learning rate           : 0.05
+    Momentum                : 0.99
+    weight decay            : 0.0005
+    Global Rounds           : 1500
+
+    Federated parameters:
+    Non-IID
+    Number of global users  : 152
+    Fraction num of users   : 5
+    Local Epochs            : 2
+    Local Batch size        : 8
+
+    Logging parameters:
+    save_frequency          : 20
+    local_test_frequency    : 9999
+    global_test_frequency   : 20
+    USE_WANDB               : False
+
+device: cuda
+find 2975 examples
+find 500 examples
+
+Getting non-iid user indices for cityscapes: 
+city_names:  ['bicycle', 'building', 'bus', 'car', 'fence', 'motorcycle', 'person', 'pole', 'rider', 'road', 'sidewalk', 'sky', 'terrain', 'traffic_light', 'traffic_sign', 'train', 'truck', 'vegetation', 'wall']
+num_classes:  19
+bicycle 156
+building 156
+bus 156
+car 181
+fence 156
+motorcycle 156
+person 156
+pole 156
+rider 156
+road 156
+sidewalk 156
+sky 156
+terrain 156
+traffic_light 156
+traffic_sign 156
+train 142
+truck 156
+vegetation 156
+wall 156
+city_lens:  [156, 156, 156, 181, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 142, 156, 156, 156]
+num_users_per_city: 152 / 19 = 8
+Time consumed to get non-iid user indices: 0.01s
+
+exp_name :fed_20220817_213725_train_bisenetv2_c19_e1500_frac[5]_iid[False]_E[2]_B[8]_lr[0.05]_users[152]_opti[sgd]_sche[step]
+
+Training global model on 5 of 152 users locally for 1500 epochs
+
+
+| Global Training Round : 0 |
+Extracting prototypes finished
+local update
+
+User idx : 119
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 23 images	Loss: 2.996388
+Loss_CE:2.996388 | loss_contrast:0.000000
+
+User idx : 139
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 19 images	Loss: 4.815684
+Loss_CE:4.815684 | loss_contrast:0.000000
+
+User idx : 26
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 22 images	Loss: 9.995309
+Loss_CE:9.995309 | loss_contrast:0.000000
+
+User idx : 36
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 19 images	Loss: 9.010266
+Loss_CE:9.010266 | loss_contrast:0.000000
+
+User idx : 23
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-02
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-02
+| Global Round : 0 | Local Epochs : 2 | 23 images	Loss: 3.152833
+Loss_CE:3.152833 | loss_contrast:0.000000
+
+| Global Training Round 0 Summary |
+Local Train One global epoch loss_avg: 8.615100
+
+Weight averaging
+using weighted_average_weights
+
+wandb not init
+
+
+| Global Training Round : 1 |
+Extracting prototypes...
+
+User idx : 5
+
+User idx : 72
+
+User idx : 38
+
+User idx : 3
+
+User idx : 66
+Extracting prototypes finished
+local update
+
+User idx : 5

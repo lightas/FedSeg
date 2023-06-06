@@ -1,0 +1,687 @@
+BiSeNetV2(
+  (detail): DetailBranch(
+    (S1): Sequential(
+      (0): ConvBNReLU(
+        (conv): Conv2d(3, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): Tanh()
+      )
+      (1): ConvBNReLU(
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): Tanh()
+      )
+    )
+    (S2): Sequential(
+      (0): ConvBNReLU(
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): Tanh()
+      )
+      (1): ConvBNReLU(
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): Tanh()
+      )
+      (2): ConvBNReLU(
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): Tanh()
+      )
+    )
+    (S3): Sequential(
+      (0): ConvBNReLU(
+        (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): Tanh()
+      )
+      (1): ConvBNReLU(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): Tanh()
+      )
+      (2): ConvBNReLU(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): Tanh()
+      )
+    )
+  )
+  (segment): SegmentBranch(
+    (S1S2): StemBlock(
+      (conv): ConvBNReLU(
+        (conv): Conv2d(3, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): Tanh()
+      )
+      (left): Sequential(
+        (0): ConvBNReLU(
+          (conv): Conv2d(16, 8, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+        (1): ConvBNReLU(
+          (conv): Conv2d(8, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+      )
+      (right): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+      (fuse): ConvBNReLU(
+        (conv): Conv2d(32, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): Tanh()
+      )
+    )
+    (S3): Sequential(
+      (0): GELayerS2(
+        (conv1): ConvBNReLU(
+          (conv): Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+        (dwconv1): Sequential(
+          (0): Conv2d(16, 96, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=16, bias=False)
+          (1): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (dwconv2): Sequential(
+          (0): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=96, bias=False)
+          (1): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): Tanh()
+        )
+        (conv2): Sequential(
+          (0): Conv2d(96, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (shortcut): Sequential(
+          (0): Conv2d(16, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=16, bias=False)
+          (1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): Conv2d(16, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (3): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu): Tanh()
+      )
+      (1): GELayerS1(
+        (conv1): ConvBNReLU(
+          (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+        (dwconv): Sequential(
+          (0): Conv2d(32, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=32, bias=False)
+          (1): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): Tanh()
+        )
+        (conv2): Sequential(
+          (0): Conv2d(192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu): Tanh()
+      )
+    )
+    (S4): Sequential(
+      (0): GELayerS2(
+        (conv1): ConvBNReLU(
+          (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+        (dwconv1): Sequential(
+          (0): Conv2d(32, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=32, bias=False)
+          (1): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (dwconv2): Sequential(
+          (0): Conv2d(192, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=192, bias=False)
+          (1): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): Tanh()
+        )
+        (conv2): Sequential(
+          (0): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (shortcut): Sequential(
+          (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=32, bias=False)
+          (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (3): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu): Tanh()
+      )
+      (1): GELayerS1(
+        (conv1): ConvBNReLU(
+          (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+        (dwconv): Sequential(
+          (0): Conv2d(64, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+          (1): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): Tanh()
+        )
+        (conv2): Sequential(
+          (0): Conv2d(384, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu): Tanh()
+      )
+    )
+    (S5_4): Sequential(
+      (0): GELayerS2(
+        (conv1): ConvBNReLU(
+          (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+        (dwconv1): Sequential(
+          (0): Conv2d(64, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64, bias=False)
+          (1): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (dwconv2): Sequential(
+          (0): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+          (1): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): Tanh()
+        )
+        (conv2): Sequential(
+          (0): Conv2d(384, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (shortcut): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64, bias=False)
+          (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu): Tanh()
+      )
+      (1): GELayerS1(
+        (conv1): ConvBNReLU(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+        (dwconv): Sequential(
+          (0): Conv2d(128, 768, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+          (1): BatchNorm2d(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): Tanh()
+        )
+        (conv2): Sequential(
+          (0): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu): Tanh()
+      )
+      (2): GELayerS1(
+        (conv1): ConvBNReLU(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+        (dwconv): Sequential(
+          (0): Conv2d(128, 768, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+          (1): BatchNorm2d(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): Tanh()
+        )
+        (conv2): Sequential(
+          (0): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu): Tanh()
+      )
+      (3): GELayerS1(
+        (conv1): ConvBNReLU(
+          (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+        (dwconv): Sequential(
+          (0): Conv2d(128, 768, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+          (1): BatchNorm2d(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): Tanh()
+        )
+        (conv2): Sequential(
+          (0): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu): Tanh()
+      )
+    )
+    (S5_5): CEBlock(
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv_gap): ConvBNReLU(
+        (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): Tanh()
+      )
+      (conv_last): ConvBNReLU(
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): Tanh()
+      )
+    )
+  )
+  (bga): BGALayer(
+    (left1): Sequential(
+      (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+      (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    )
+    (left2): Sequential(
+      (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+      (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): AvgPool2d(kernel_size=3, stride=2, padding=1)
+    )
+    (right1): Sequential(
+      (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (right2): Sequential(
+      (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128, bias=False)
+      (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    )
+    (up1): Upsample(scale_factor=4.0, mode=nearest)
+    (up2): Upsample(scale_factor=4.0, mode=nearest)
+    (conv): Sequential(
+      (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): Tanh()
+    )
+  )
+  (head): SegmentHead(
+    (conv): ConvBNReLU(
+      (conv): Conv2d(128, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): Tanh()
+    )
+    (drop): Dropout(p=0.1, inplace=False)
+    (conv_out): Sequential(
+      (0): Identity()
+      (1): Conv2d(1024, 19, kernel_size=(1, 1), stride=(1, 1))
+      (2): Upsample(scale_factor=8.0, mode=bilinear)
+    )
+  )
+  (aux2): SegmentHead(
+    (conv): ConvBNReLU(
+      (conv): Conv2d(16, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): Tanh()
+    )
+    (drop): Dropout(p=0.1, inplace=False)
+    (conv_out): Sequential(
+      (0): Sequential(
+        (0): Upsample(scale_factor=2.0, mode=nearest)
+        (1): ConvBNReLU(
+          (conv): Conv2d(128, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+      )
+      (1): Conv2d(16, 19, kernel_size=(1, 1), stride=(1, 1))
+      (2): Upsample(scale_factor=2.0, mode=bilinear)
+    )
+  )
+  (aux3): SegmentHead(
+    (conv): ConvBNReLU(
+      (conv): Conv2d(32, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): Tanh()
+    )
+    (drop): Dropout(p=0.1, inplace=False)
+    (conv_out): Sequential(
+      (0): Sequential(
+        (0): Upsample(scale_factor=2.0, mode=nearest)
+        (1): ConvBNReLU(
+          (conv): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+      )
+      (1): Conv2d(64, 19, kernel_size=(1, 1), stride=(1, 1))
+      (2): Upsample(scale_factor=4.0, mode=bilinear)
+    )
+  )
+  (aux4): SegmentHead(
+    (conv): ConvBNReLU(
+      (conv): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): Tanh()
+    )
+    (drop): Dropout(p=0.1, inplace=False)
+    (conv_out): Sequential(
+      (0): Sequential(
+        (0): Upsample(scale_factor=2.0, mode=nearest)
+        (1): ConvBNReLU(
+          (conv): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+      )
+      (1): Conv2d(256, 19, kernel_size=(1, 1), stride=(1, 1))
+      (2): Upsample(scale_factor=8.0, mode=bilinear)
+    )
+  )
+  (aux5_4): SegmentHead(
+    (conv): ConvBNReLU(
+      (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): Tanh()
+    )
+    (drop): Dropout(p=0.1, inplace=False)
+    (conv_out): Sequential(
+      (0): Sequential(
+        (0): Upsample(scale_factor=2.0, mode=nearest)
+        (1): ConvBNReLU(
+          (conv): Conv2d(128, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): Tanh()
+        )
+      )
+      (1): Conv2d(1024, 19, kernel_size=(1, 1), stride=(1, 1))
+      (2): Upsample(scale_factor=16.0, mode=bilinear)
+    )
+  )
+)
+===============================================================================================
+Layer (type:depth-idx)                        Output Shape              Param #
+===============================================================================================
+BiSeNetV2                                     --                        --
+├─DetailBranch: 1-1                           [1, 128, 64, 128]         --
+│    └─Sequential: 2-1                        [1, 64, 256, 512]         --
+│    │    └─ConvBNReLU: 3-1                   [1, 64, 256, 512]         --
+│    │    │    └─Conv2d: 4-1                  [1, 64, 256, 512]         1,728
+│    │    │    └─BatchNorm2d: 4-2             [1, 64, 256, 512]         128
+│    │    │    └─Tanh: 4-3                    [1, 64, 256, 512]         --
+│    │    └─ConvBNReLU: 3-2                   [1, 64, 256, 512]         --
+│    │    │    └─Conv2d: 4-4                  [1, 64, 256, 512]         36,864
+│    │    │    └─BatchNorm2d: 4-5             [1, 64, 256, 512]         128
+│    │    │    └─Tanh: 4-6                    [1, 64, 256, 512]         --
+│    └─Sequential: 2-2                        [1, 64, 128, 256]         --
+│    │    └─ConvBNReLU: 3-3                   [1, 64, 128, 256]         --
+│    │    │    └─Conv2d: 4-7                  [1, 64, 128, 256]         36,864
+│    │    │    └─BatchNorm2d: 4-8             [1, 64, 128, 256]         128
+│    │    │    └─Tanh: 4-9                    [1, 64, 128, 256]         --
+│    │    └─ConvBNReLU: 3-4                   [1, 64, 128, 256]         --
+│    │    │    └─Conv2d: 4-10                 [1, 64, 128, 256]         36,864
+│    │    │    └─BatchNorm2d: 4-11            [1, 64, 128, 256]         128
+│    │    │    └─Tanh: 4-12                   [1, 64, 128, 256]         --
+│    │    └─ConvBNReLU: 3-5                   [1, 64, 128, 256]         --
+│    │    │    └─Conv2d: 4-13                 [1, 64, 128, 256]         36,864
+│    │    │    └─BatchNorm2d: 4-14            [1, 64, 128, 256]         128
+│    │    │    └─Tanh: 4-15                   [1, 64, 128, 256]         --
+│    └─Sequential: 2-3                        [1, 128, 64, 128]         --
+│    │    └─ConvBNReLU: 3-6                   [1, 128, 64, 128]         --
+│    │    │    └─Conv2d: 4-16                 [1, 128, 64, 128]         73,728
+│    │    │    └─BatchNorm2d: 4-17            [1, 128, 64, 128]         256
+│    │    │    └─Tanh: 4-18                   [1, 128, 64, 128]         --
+│    │    └─ConvBNReLU: 3-7                   [1, 128, 64, 128]         --
+│    │    │    └─Conv2d: 4-19                 [1, 128, 64, 128]         147,456
+│    │    │    └─BatchNorm2d: 4-20            [1, 128, 64, 128]         256
+│    │    │    └─Tanh: 4-21                   [1, 128, 64, 128]         --
+│    │    └─ConvBNReLU: 3-8                   [1, 128, 64, 128]         --
+│    │    │    └─Conv2d: 4-22                 [1, 128, 64, 128]         147,456
+│    │    │    └─BatchNorm2d: 4-23            [1, 128, 64, 128]         256
+│    │    │    └─Tanh: 4-24                   [1, 128, 64, 128]         --
+├─SegmentBranch: 1-2                          [1, 16, 128, 256]         --
+│    └─StemBlock: 2-4                         [1, 16, 128, 256]         --
+│    │    └─ConvBNReLU: 3-9                   [1, 16, 256, 512]         --
+│    │    │    └─Conv2d: 4-25                 [1, 16, 256, 512]         432
+│    │    │    └─BatchNorm2d: 4-26            [1, 16, 256, 512]         32
+│    │    │    └─Tanh: 4-27                   [1, 16, 256, 512]         --
+│    │    └─Sequential: 3-10                  [1, 16, 128, 256]         --
+│    │    │    └─ConvBNReLU: 4-28             [1, 8, 256, 512]          --
+│    │    │    │    └─Conv2d: 5-1             [1, 8, 256, 512]          128
+│    │    │    │    └─BatchNorm2d: 5-2        [1, 8, 256, 512]          16
+│    │    │    │    └─Tanh: 5-3               [1, 8, 256, 512]          --
+│    │    │    └─ConvBNReLU: 4-29             [1, 16, 128, 256]         --
+│    │    │    │    └─Conv2d: 5-4             [1, 16, 128, 256]         1,152
+│    │    │    │    └─BatchNorm2d: 5-5        [1, 16, 128, 256]         32
+│    │    │    │    └─Tanh: 5-6               [1, 16, 128, 256]         --
+│    │    └─MaxPool2d: 3-11                   [1, 16, 128, 256]         --
+│    │    └─ConvBNReLU: 3-12                  [1, 16, 128, 256]         --
+│    │    │    └─Conv2d: 4-30                 [1, 16, 128, 256]         4,608
+│    │    │    └─BatchNorm2d: 4-31            [1, 16, 128, 256]         32
+│    │    │    └─Tanh: 4-32                   [1, 16, 128, 256]         --
+│    └─Sequential: 2-5                        [1, 32, 64, 128]          --
+│    │    └─GELayerS2: 3-13                   [1, 32, 64, 128]          --
+│    │    │    └─ConvBNReLU: 4-33             [1, 16, 128, 256]         --
+│    │    │    │    └─Conv2d: 5-7             [1, 16, 128, 256]         2,304
+│    │    │    │    └─BatchNorm2d: 5-8        [1, 16, 128, 256]         32
+│    │    │    │    └─Tanh: 5-9               [1, 16, 128, 256]         --
+│    │    │    └─Sequential: 4-34             [1, 96, 64, 128]          --
+│    │    │    │    └─Conv2d: 5-10            [1, 96, 64, 128]          864
+│    │    │    │    └─BatchNorm2d: 5-11       [1, 96, 64, 128]          192
+│    │    │    └─Sequential: 4-35             [1, 96, 64, 128]          --
+│    │    │    │    └─Conv2d: 5-12            [1, 96, 64, 128]          864
+│    │    │    │    └─BatchNorm2d: 5-13       [1, 96, 64, 128]          192
+│    │    │    │    └─Tanh: 5-14              [1, 96, 64, 128]          --
+│    │    │    └─Sequential: 4-36             [1, 32, 64, 128]          --
+│    │    │    │    └─Conv2d: 5-15            [1, 32, 64, 128]          3,072
+│    │    │    │    └─BatchNorm2d: 5-16       [1, 32, 64, 128]          64
+│    │    │    └─Sequential: 4-37             [1, 32, 64, 128]          --
+│    │    │    │    └─Conv2d: 5-17            [1, 16, 64, 128]          144
+│    │    │    │    └─BatchNorm2d: 5-18       [1, 16, 64, 128]          32
+│    │    │    │    └─Conv2d: 5-19            [1, 32, 64, 128]          512
+│    │    │    │    └─BatchNorm2d: 5-20       [1, 32, 64, 128]          64
+│    │    │    └─Tanh: 4-38                   [1, 32, 64, 128]          --
+│    │    └─GELayerS1: 3-14                   [1, 32, 64, 128]          --
+│    │    │    └─ConvBNReLU: 4-39             [1, 32, 64, 128]          --
+│    │    │    │    └─Conv2d: 5-21            [1, 32, 64, 128]          9,216
+│    │    │    │    └─BatchNorm2d: 5-22       [1, 32, 64, 128]          64
+│    │    │    │    └─Tanh: 5-23              [1, 32, 64, 128]          --
+│    │    │    └─Sequential: 4-40             [1, 192, 64, 128]         --
+│    │    │    │    └─Conv2d: 5-24            [1, 192, 64, 128]         1,728
+│    │    │    │    └─BatchNorm2d: 5-25       [1, 192, 64, 128]         384
+│    │    │    │    └─Tanh: 5-26              [1, 192, 64, 128]         --
+│    │    │    └─Sequential: 4-41             [1, 32, 64, 128]          --
+│    │    │    │    └─Conv2d: 5-27            [1, 32, 64, 128]          6,144
+│    │    │    │    └─BatchNorm2d: 5-28       [1, 32, 64, 128]          64
+│    │    │    └─Tanh: 4-42                   [1, 32, 64, 128]          --
+│    └─Sequential: 2-6                        [1, 64, 32, 64]           --
+│    │    └─GELayerS2: 3-15                   [1, 64, 32, 64]           --
+│    │    │    └─ConvBNReLU: 4-43             [1, 32, 64, 128]          --
+│    │    │    │    └─Conv2d: 5-29            [1, 32, 64, 128]          9,216
+│    │    │    │    └─BatchNorm2d: 5-30       [1, 32, 64, 128]          64
+│    │    │    │    └─Tanh: 5-31              [1, 32, 64, 128]          --
+│    │    │    └─Sequential: 4-44             [1, 192, 32, 64]          --
+│    │    │    │    └─Conv2d: 5-32            [1, 192, 32, 64]          1,728
+│    │    │    │    └─BatchNorm2d: 5-33       [1, 192, 32, 64]          384
+│    │    │    └─Sequential: 4-45             [1, 192, 32, 64]          --
+│    │    │    │    └─Conv2d: 5-34            [1, 192, 32, 64]          1,728
+│    │    │    │    └─BatchNorm2d: 5-35       [1, 192, 32, 64]          384
+│    │    │    │    └─Tanh: 5-36              [1, 192, 32, 64]          --
+│    │    │    └─Sequential: 4-46             [1, 64, 32, 64]           --
+│    │    │    │    └─Conv2d: 5-37            [1, 64, 32, 64]           12,288
+│    │    │    │    └─BatchNorm2d: 5-38       [1, 64, 32, 64]           128
+│    │    │    └─Sequential: 4-47             [1, 64, 32, 64]           --
+│    │    │    │    └─Conv2d: 5-39            [1, 32, 32, 64]           288
+│    │    │    │    └─BatchNorm2d: 5-40       [1, 32, 32, 64]           64
+│    │    │    │    └─Conv2d: 5-41            [1, 64, 32, 64]           2,048
+│    │    │    │    └─BatchNorm2d: 5-42       [1, 64, 32, 64]           128
+│    │    │    └─Tanh: 4-48                   [1, 64, 32, 64]           --
+│    │    └─GELayerS1: 3-16                   [1, 64, 32, 64]           --
+│    │    │    └─ConvBNReLU: 4-49             [1, 64, 32, 64]           --
+│    │    │    │    └─Conv2d: 5-43            [1, 64, 32, 64]           36,864
+│    │    │    │    └─BatchNorm2d: 5-44       [1, 64, 32, 64]           128
+│    │    │    │    └─Tanh: 5-45              [1, 64, 32, 64]           --
+│    │    │    └─Sequential: 4-50             [1, 384, 32, 64]          --
+│    │    │    │    └─Conv2d: 5-46            [1, 384, 32, 64]          3,456
+│    │    │    │    └─BatchNorm2d: 5-47       [1, 384, 32, 64]          768
+│    │    │    │    └─Tanh: 5-48              [1, 384, 32, 64]          --
+│    │    │    └─Sequential: 4-51             [1, 64, 32, 64]           --
+│    │    │    │    └─Conv2d: 5-49            [1, 64, 32, 64]           24,576
+│    │    │    │    └─BatchNorm2d: 5-50       [1, 64, 32, 64]           128
+│    │    │    └─Tanh: 4-52                   [1, 64, 32, 64]           --
+│    └─Sequential: 2-7                        [1, 128, 16, 32]          --
+│    │    └─GELayerS2: 3-17                   [1, 128, 16, 32]          --
+│    │    │    └─ConvBNReLU: 4-53             [1, 64, 32, 64]           --
+│    │    │    │    └─Conv2d: 5-51            [1, 64, 32, 64]           36,864
+│    │    │    │    └─BatchNorm2d: 5-52       [1, 64, 32, 64]           128
+│    │    │    │    └─Tanh: 5-53              [1, 64, 32, 64]           --
+│    │    │    └─Sequential: 4-54             [1, 384, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-54            [1, 384, 16, 32]          3,456
+│    │    │    │    └─BatchNorm2d: 5-55       [1, 384, 16, 32]          768
+│    │    │    └─Sequential: 4-55             [1, 384, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-56            [1, 384, 16, 32]          3,456
+│    │    │    │    └─BatchNorm2d: 5-57       [1, 384, 16, 32]          768
+│    │    │    │    └─Tanh: 5-58              [1, 384, 16, 32]          --
+│    │    │    └─Sequential: 4-56             [1, 128, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-59            [1, 128, 16, 32]          49,152
+│    │    │    │    └─BatchNorm2d: 5-60       [1, 128, 16, 32]          256
+│    │    │    └─Sequential: 4-57             [1, 128, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-61            [1, 64, 16, 32]           576
+│    │    │    │    └─BatchNorm2d: 5-62       [1, 64, 16, 32]           128
+│    │    │    │    └─Conv2d: 5-63            [1, 128, 16, 32]          8,192
+│    │    │    │    └─BatchNorm2d: 5-64       [1, 128, 16, 32]          256
+│    │    │    └─Tanh: 4-58                   [1, 128, 16, 32]          --
+│    │    └─GELayerS1: 3-18                   [1, 128, 16, 32]          --
+│    │    │    └─ConvBNReLU: 4-59             [1, 128, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-65            [1, 128, 16, 32]          147,456
+│    │    │    │    └─BatchNorm2d: 5-66       [1, 128, 16, 32]          256
+│    │    │    │    └─Tanh: 5-67              [1, 128, 16, 32]          --
+│    │    │    └─Sequential: 4-60             [1, 768, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-68            [1, 768, 16, 32]          6,912
+│    │    │    │    └─BatchNorm2d: 5-69       [1, 768, 16, 32]          1,536
+│    │    │    │    └─Tanh: 5-70              [1, 768, 16, 32]          --
+│    │    │    └─Sequential: 4-61             [1, 128, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-71            [1, 128, 16, 32]          98,304
+│    │    │    │    └─BatchNorm2d: 5-72       [1, 128, 16, 32]          256
+│    │    │    └─Tanh: 4-62                   [1, 128, 16, 32]          --
+│    │    └─GELayerS1: 3-19                   [1, 128, 16, 32]          --
+│    │    │    └─ConvBNReLU: 4-63             [1, 128, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-73            [1, 128, 16, 32]          147,456
+│    │    │    │    └─BatchNorm2d: 5-74       [1, 128, 16, 32]          256
+│    │    │    │    └─Tanh: 5-75              [1, 128, 16, 32]          --
+│    │    │    └─Sequential: 4-64             [1, 768, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-76            [1, 768, 16, 32]          6,912
+│    │    │    │    └─BatchNorm2d: 5-77       [1, 768, 16, 32]          1,536
+│    │    │    │    └─Tanh: 5-78              [1, 768, 16, 32]          --
+│    │    │    └─Sequential: 4-65             [1, 128, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-79            [1, 128, 16, 32]          98,304
+│    │    │    │    └─BatchNorm2d: 5-80       [1, 128, 16, 32]          256
+│    │    │    └─Tanh: 4-66                   [1, 128, 16, 32]          --
+│    │    └─GELayerS1: 3-20                   [1, 128, 16, 32]          --
+│    │    │    └─ConvBNReLU: 4-67             [1, 128, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-81            [1, 128, 16, 32]          147,456
+│    │    │    │    └─BatchNorm2d: 5-82       [1, 128, 16, 32]          256
+│    │    │    │    └─Tanh: 5-83              [1, 128, 16, 32]          --
+│    │    │    └─Sequential: 4-68             [1, 768, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-84            [1, 768, 16, 32]          6,912
+│    │    │    │    └─BatchNorm2d: 5-85       [1, 768, 16, 32]          1,536
+│    │    │    │    └─Tanh: 5-86              [1, 768, 16, 32]          --
+│    │    │    └─Sequential: 4-69             [1, 128, 16, 32]          --
+│    │    │    │    └─Conv2d: 5-87            [1, 128, 16, 32]          98,304
+│    │    │    │    └─BatchNorm2d: 5-88       [1, 128, 16, 32]          256
+│    │    │    └─Tanh: 4-70                   [1, 128, 16, 32]          --
+│    └─CEBlock: 2-8                           [1, 128, 16, 32]          --
+│    │    └─BatchNorm2d: 3-21                 [1, 128, 1, 1]            256
+│    │    └─ConvBNReLU: 3-22                  [1, 128, 1, 1]            --
+│    │    │    └─Conv2d: 4-71                 [1, 128, 1, 1]            16,384
+│    │    │    └─BatchNorm2d: 4-72            [1, 128, 1, 1]            256
+│    │    │    └─Tanh: 4-73                   [1, 128, 1, 1]            --
+│    │    └─ConvBNReLU: 3-23                  [1, 128, 16, 32]          --
+│    │    │    └─Conv2d: 4-74                 [1, 128, 16, 32]          147,456
+│    │    │    └─BatchNorm2d: 4-75            [1, 128, 16, 32]          256
+│    │    │    └─Tanh: 4-76                   [1, 128, 16, 32]          --
+├─BGALayer: 1-3                               [1, 128, 64, 128]         --
+│    └─Sequential: 2-9                        [1, 128, 64, 128]         --
+│    │    └─Conv2d: 3-24                      [1, 128, 64, 128]         1,152
+│    │    └─BatchNorm2d: 3-25                 [1, 128, 64, 128]         256
+│    │    └─Conv2d: 3-26                      [1, 128, 64, 128]         16,384
+│    └─Sequential: 2-10                       [1, 128, 16, 32]          --
+│    │    └─Conv2d: 3-27                      [1, 128, 32, 64]          147,456
+│    │    └─BatchNorm2d: 3-28                 [1, 128, 32, 64]          256
+│    │    └─AvgPool2d: 3-29                   [1, 128, 16, 32]          --
+│    └─Sequential: 2-11                       [1, 128, 16, 32]          --
+│    │    └─Conv2d: 3-30                      [1, 128, 16, 32]          147,456
+│    │    └─BatchNorm2d: 3-31                 [1, 128, 16, 32]          256
+│    └─Sequential: 2-12                       [1, 128, 16, 32]          --
+│    │    └─Conv2d: 3-32                      [1, 128, 16, 32]          1,152
+│    │    └─BatchNorm2d: 3-33                 [1, 128, 16, 32]          256
+│    │    └─Conv2d: 3-34                      [1, 128, 16, 32]          16,384
+│    └─Upsample: 2-13                         [1, 128, 64, 128]         --
+│    └─Upsample: 2-14                         [1, 128, 64, 128]         --
+│    └─Sequential: 2-15                       [1, 128, 64, 128]         --
+│    │    └─Conv2d: 3-35                      [1, 128, 64, 128]         147,456
+│    │    └─BatchNorm2d: 3-36                 [1, 128, 64, 128]         256
+│    │    └─Tanh: 3-37                        [1, 128, 64, 128]         --
+├─SegmentHead: 1-4                            [1, 19, 512, 1024]        --
+│    └─ConvBNReLU: 2-16                       [1, 1024, 64, 128]        --
+│    │    └─Conv2d: 3-38                      [1, 1024, 64, 128]        1,179,648
+│    │    └─BatchNorm2d: 3-39                 [1, 1024, 64, 128]        2,048
+│    │    └─Tanh: 3-40                        [1, 1024, 64, 128]        --
+│    └─Dropout: 2-17                          [1, 1024, 64, 128]        --
+│    └─Sequential: 2-18                       [1, 19, 512, 1024]        --
+│    │    └─Identity: 3-41                    [1, 1024, 64, 128]        --
+│    │    └─Conv2d: 3-42                      [1, 19, 64, 128]          19,475
+│    │    └─Upsample: 3-43                    [1, 19, 512, 1024]        --
+├─SegmentHead: 1-5                            [1, 19, 512, 1024]        --
+│    └─ConvBNReLU: 2-19                       [1, 128, 128, 256]        --
+│    │    └─Conv2d: 3-44                      [1, 128, 128, 256]        18,432
+│    │    └─BatchNorm2d: 3-45                 [1, 128, 128, 256]        256
+│    │    └─Tanh: 3-46                        [1, 128, 128, 256]        --
+│    └─Dropout: 2-20                          [1, 128, 128, 256]        --
+│    └─Sequential: 2-21                       [1, 19, 512, 1024]        --
+│    │    └─Sequential: 3-47                  [1, 16, 256, 512]         --
+│    │    │    └─Upsample: 4-77               [1, 128, 256, 512]        --
+│    │    │    └─ConvBNReLU: 4-78             [1, 16, 256, 512]         --
+│    │    │    │    └─Conv2d: 5-89            [1, 16, 256, 512]         18,432
+│    │    │    │    └─BatchNorm2d: 5-90       [1, 16, 256, 512]         32
+│    │    │    │    └─Tanh: 5-91              [1, 16, 256, 512]         --
+│    │    └─Conv2d: 3-48                      [1, 19, 256, 512]         323
+│    │    └─Upsample: 3-49                    [1, 19, 512, 1024]        --
+├─SegmentHead: 1-6                            [1, 19, 512, 1024]        --
+│    └─ConvBNReLU: 2-22                       [1, 128, 64, 128]         --
+│    │    └─Conv2d: 3-50                      [1, 128, 64, 128]         36,864
+│    │    └─BatchNorm2d: 3-51                 [1, 128, 64, 128]         256
+│    │    └─Tanh: 3-52                        [1, 128, 64, 128]         --
+│    └─Dropout: 2-23                          [1, 128, 64, 128]         --
+│    └─Sequential: 2-24                       [1, 19, 512, 1024]        --
+│    │    └─Sequential: 3-53                  [1, 64, 128, 256]         --
+│    │    │    └─Upsample: 4-79               [1, 128, 128, 256]        --
+│    │    │    └─ConvBNReLU: 4-80             [1, 64, 128, 256]         --
+│    │    │    │    └─Conv2d: 5-92            [1, 64, 128, 256]         73,728
+│    │    │    │    └─BatchNorm2d: 5-93       [1, 64, 128, 256]         128
+│    │    │    │    └─Tanh: 5-94              [1, 64, 128, 256]         --
+│    │    └─Conv2d: 3-54                      [1, 19, 128, 256]         1,235
+│    │    └─Upsample: 3-55                    [1, 19, 512, 1024]        --
+├─SegmentHead: 1-7                            [1, 19, 512, 1024]        --
+│    └─ConvBNReLU: 2-25                       [1, 128, 32, 64]          --
+│    │    └─Conv2d: 3-56                      [1, 128, 32, 64]          73,728
+│    │    └─BatchNorm2d: 3-57                 [1, 128, 32, 64]          256
+│    │    └─Tanh: 3-58                        [1, 128, 32, 64]          --
+│    └─Dropout: 2-26                          [1, 128, 32, 64]          --
+│    └─Sequential: 2-27                       [1, 19, 512, 1024]        --
+│    │    └─Sequential: 3-59                  [1, 256, 64, 128]         --
+│    │    │    └─Upsample: 4-81               [1, 128, 64, 128]         --
+│    │    │    └─ConvBNReLU: 4-82             [1, 256, 64, 128]         --
+│    │    │    │    └─Conv2d: 5-95            [1, 256, 64, 128]         294,912
+│    │    │    │    └─BatchNorm2d: 5-96       [1, 256, 64, 128]         512
+│    │    │    │    └─Tanh: 5-97              [1, 256, 64, 128]         --
+│    │    └─Conv2d: 3-60                      [1, 19, 64, 128]          4,883
+│    │    └─Upsample: 3-61                    [1, 19, 512, 1024]        --
+├─SegmentHead: 1-8                            [1, 19, 512, 1024]        --
+│    └─ConvBNReLU: 2-28                       [1, 128, 16, 32]          --
+│    │    └─Conv2d: 3-62                      [1, 128, 16, 32]          147,456
+│    │    └─BatchNorm2d: 3-63                 [1, 128, 16, 32]          256
+│    │    └─Tanh: 3-64                        [1, 128, 16, 32]          --
+│    └─Dropout: 2-29                          [1, 128, 16, 32]          --
+│    └─Sequential: 2-30                       [1, 19, 512, 1024]        --
+│    │    └─Sequential: 3-65                  [1, 1024, 32, 64]         --
+│    │    │    └─Upsample: 4-83               [1, 128, 32, 64]          --
+│    │    │    └─ConvBNReLU: 4-84             [1, 1024, 32, 64]         --
+│    │    │    │    └─Conv2d: 5-98            [1, 1024, 32, 64]         1,179,648
+│    │    │    │    └─BatchNorm2d: 5-99       [1, 1024, 32, 64]         2,048
+│    │    │    │    └─Tanh: 5-100             [1, 1024, 32, 64]         --
+│    │    └─Conv2d: 3-66                      [1, 19, 32, 64]           19,475
+│    │    └─Upsample: 3-67                    [1, 19, 512, 1024]        --
+===============================================================================================
+Total params: 5,231,487
+Trainable params: 5,231,487
+Non-trainable params: 0
+Total mult-adds (G): 35.56
+===============================================================================================
+Input size (MB): 6.29
+Forward/backward pass size (MB): 1074.19
+Params size (MB): 20.93
+Estimated Total Size (MB): 1101.40
+===============================================================================================

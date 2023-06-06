@@ -1,0 +1,1 @@
+os.getcwd():  /home/mjx/MIAO_code_noshare_g_ditill/bisenetv2_fedavg_miao

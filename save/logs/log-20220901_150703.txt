@@ -1,0 +1,162 @@
+os.getcwd():  /root/paddlejob/workspace/env_run/bisenetv2_fedavg_miao
+
+Experimental details:
+    Dataset                 : cityscapes
+    Dataset root_dir        : ../data/cityscapes_split_erase19
+    USE_ERASE_DATA          : True
+    Number of classes       : 19
+    Split data (train data) : train
+    Model                   : bisenetv2
+    resume from Checkpoint  : saved.pth
+    Optimizer               : sgd
+    Scheduler               : step
+    Learning rate           : 0.05
+    Momentum                : 0.99
+    weight decay            : 0.0005
+    Global Rounds           : 1600
+
+    Federated parameters:
+    Non-IID
+    Number of global users  : 152
+    Fraction num of users   : 5
+    Local Epochs            : 2
+    Local Batch size        : 8
+
+    Logging parameters:
+    save_frequency          : 20
+    local_test_frequency    : 9999
+    global_test_frequency   : 20
+    USE_WANDB               : False
+
+device: cuda
+find 2975 examples
+find 500 examples
+
+Getting non-iid user indices for cityscapes: 
+city_names:  ['bicycle', 'building', 'bus', 'car', 'fence', 'motorcycle', 'person', 'pole', 'rider', 'road', 'sidewalk', 'sky', 'terrain', 'traffic_light', 'traffic_sign', 'train', 'truck', 'vegetation', 'wall']
+num_classes:  19
+bicycle 156
+building 156
+bus 156
+car 181
+fence 156
+motorcycle 156
+person 156
+pole 156
+rider 156
+road 156
+sidewalk 156
+sky 156
+terrain 156
+traffic_light 156
+traffic_sign 156
+train 142
+truck 156
+vegetation 156
+wall 156
+city_lens:  [156, 156, 156, 181, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 142, 156, 156, 156]
+num_users_per_city: 152 / 19 = 8
+Time consumed to get non-iid user indices: 0.01s
+
+resume from:  saved.pth
+exp_name :fed_20220901_150703_train_bisenetv2_c19_e1600_frac[5]_iid[False]_E[2]_B[8]_lr[0.05]_users[152]_opti[sgd]_sche[step]
+
+Training global model on 5 of 152 users locally for 1600 epochs
+
+
+| Global Training Round : 1500 |
+Extracting prototypes...
+
+User idx : 104
+
+User idx : 49
+
+User idx : 36
+
+User idx : 48
+
+User idx : 110
+Extracting prototypes finished
+local update
+
+User idx : 104
+tensor(0.5658, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0724, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-03
+tensor(0.5775, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0714, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-03
+tensor(0.5664, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0683, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-03
+tensor(0.5462, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0754, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-03
+| Global Round : 1500 | Local Epochs : 2 | 19 images	Loss: 0.375810
+Loss_CE:0.123831 | loss_contrast:0.251979 loss_pseudo: 0.000000
+
+User idx : 49
+tensor(0.6172, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0748, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-03
+tensor(0.5286, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0726, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-03
+tensor(0.6334, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0694, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-03
+tensor(0.5152, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0725, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-03
+| Global Round : 1500 | Local Epochs : 2 | 19 images	Loss: 1.384237
+Loss_CE:1.347437 | loss_contrast:0.036799 loss_pseudo: 0.000000
+
+User idx : 36
+tensor(0.6002, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0717, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-03
+tensor(0.5262, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0735, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-03
+tensor(0.6064, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0704, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-03
+tensor(0.5858, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0741, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-03
+| Global Round : 1500 | Local Epochs : 2 | 19 images	Loss: 1.082125
+Loss_CE:0.393409 | loss_contrast:0.688715 loss_pseudo: 0.000000
+
+User idx : 48
+tensor(0.6211, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0762, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 0, batch_idx: 0, lr: 5.000e-03
+tensor(0.6076, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0742, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 0, batch_idx: 1, lr: 5.000e-03
+tensor(0.5449, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0712, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 1, batch_idx: 0, lr: 5.000e-03
+tensor(0.6335, device='cuda:0', grad_fn=<MaxBackward1>)
+tensor(0.0744, device='cuda:0', grad_fn=<MinBackward1>)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Local Epoch: 1, batch_idx: 1, lr: 5.000e-03
+| Global Round : 1500 | Local Epochs : 2 | 19 images	Loss: 0.479052
+Loss_CE:0.444806 | loss_contrast:0.034247 loss_pseudo: 0.000000
+
+User idx : 110
