@@ -4,13 +4,17 @@ CVPR 2023 FedSeg: Class-Heterogeneous Federated Learning for Semantic Segmentati
 
 ## Datasets for Federated Learning Segmentation
 
-Cityscapes: 
+Cityscapes: 链接: https://pan.baidu.com/s/15D-Eq0om1DFpsKFeuBB3sg  密码: 9cbm 
+            链接: https://pan.baidu.com/s/1AF9HKEF9fpulBOds3p_ZPQ  密码: bvsa
 
-CamVid: 
+CamVid:  链接: https://pan.baidu.com/s/1suB1zIQTNt02fqJBwdxMSA  密码: l343
+         链接: https://pan.baidu.com/s/1WksbT44mrylLptN4wKoxqA  密码: l610
 
-PascalVOC: 
 
-ADE20k: 
+PascalVOC: 链接: https://pan.baidu.com/s/1c03gu0SIUA62FC4403f9GQ  密码: 3d60
+
+
+ADE20k: 链接: https://pan.baidu.com/s/13ypIWZFCa58oZT7cA3KWNA  密码: tps2
 
 ## Training and Evaluation
 
