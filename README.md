@@ -2,7 +2,7 @@
 CVPR 2023 FedSeg: Class-Heterogeneous Federated Learning for Semantic Segmentation
 
 
-# Datasets for Federated Learning Segmentation
+## Datasets for Federated Learning Segmentation
 
 Cityscapes: 
 
@@ -12,14 +12,14 @@ PascalVOC:
 
 ADE20k: 
 
-# Training and Evaluation
+## Training and Evaluation
 
 Put the downloaded datasets into the folder 'data'
 ```
 sh run_city.sh
 ```
 
-# Citation
+## Citation
 
 @inproceedings{miao2023fedseg,
   title={FedSeg: Class-Heterogeneous Federated Learning for Semantic Segmentation},
