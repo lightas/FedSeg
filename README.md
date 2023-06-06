@@ -24,7 +24,7 @@ sh run_city.sh
 ```
 
 ## Citation
-
+```
 @inproceedings{miao2023fedseg,
   title={FedSeg: Class-Heterogeneous Federated Learning for Semantic Segmentation},
   author={Miao, Jiaxu and Yang, Zongxin and Fan, Leilei and Yang, Yi},
@@ -32,3 +32,4 @@ sh run_city.sh
   pages={8042--8052},
   year={2023}
 }
+```
