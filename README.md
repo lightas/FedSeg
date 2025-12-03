@@ -1,7 +1,7 @@
 # FedSeg
 CVPR 2023 FedSeg: Class-Heterogeneous Federated Learning for Semantic Segmentation
 
-Pytorch[https://github.com/lightas/FedSeg/]|MindSpore[https://github.com/xiuguangli/FedSeg-mindspore]|Paddle[https://github.com/18079070189/FedSeg_Paddle.git]
+[Pytorch](ttps://github.com/lightas/FedSeg/) | [MindSpore](https://github.com/xiuguangli/FedSeg-mindspore)| [Paddle](https://github.com/18079070189/FedSeg_Paddle.git)
 
 
 ## Datasets for Federated Learning Segmentation
